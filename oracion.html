@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oración – IDJ Casa de Refugio</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #362062;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 30px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    nav img { height: 90px; }
+
+    .dropdown { position: relative; }
+
+    .dropbtn {
+      background-color: #362062;
+      color: white;
+      padding: 18px 28px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: absolute;
+      right: 0;
+      background-color: #362062;
+      min-width: 240px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+    }
+
+    .dropdown-content.show {
+      max-height: 500px;
+    }
+
+    .dropdown-content a,
+    .dropdown-content .lang-btn {
+      color: white;
+      padding: 18px 22px;
+      text-decoration: none;
+      display: block;
+      background: none;
+      text-align: left;
+      border: none;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content .lang-btn:hover {
+      background-color: #4A2D81;
+    }
+
+    header {
+      background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+      color: #362062;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+    }
+
+    footer {
+      background: #4A2D81;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    footer a { color: white; text-decoration: underline; }
+
+    .social-icons img {
+      filter: invert(1);
+      margin: 0 8px;
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+
+    .live-btn {
+      background-color: #e03e3e;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .live-btn:hover {
+      background-color: #b82b2b;
+    }
+  </style>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("menuDropdown");
+      dropdown.classList.toggle("show");
+    }
+
+    function toggleLanguage() {
+      const isSpanish = document.documentElement.lang === "es";
+      document.documentElement.lang = isSpanish ? "en" : "es";
+
+      document.getElementById("nav-welcome").textContent = isSpanish ? "Welcome" : "Bienvenida";
+      document.getElementById("nav-pastor").textContent = isSpanish ? "Pastor" : "Pastor";
+      document.getElementById("nav-contact").textContent = isSpanish ? "Information" : "Información";
+      document.getElementById("nav-gallery").textContent = isSpanish ? "Gallery" : "Galería";
+      document.querySelector(".lang-btn").textContent = isSpanish ? "Español" : "English";
+
+      document.getElementById("nav-offering").innerHTML = `
+        <img src="https://cdn.iconscout.com/icon/free/png-256/venmo-2-569346.png" alt="Venmo" style="height: 20px;">
+        ${isSpanish ? "Offering / Tithes" : "Ofrenda / Diezmo"}
+      `;
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].classList.remove('show');
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <nav>
+    <img src="https://i.postimg.cc/43KB5mDX/idjcdr-logo-transparency-white.png" alt="IDJ Logo">
+    <div style="display: flex; align-items: center;">
+      <a href="live.html" class="live-btn">LIVE</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown()">☰ Menu</button>
+        <div class="dropdown-content" id="menuDropdown">
+          <a href="index.html" id="nav-welcome">Bienvenida</a>
+          <a href="pastor.html" id="nav-pastor">Pastor</a>
+          <a href="contacto.html" id="nav-contact">Información</a>
+          <a href="galeria.html" id="nav-gallery">Galería</a>
+          <button class="lang-btn" onclick="toggleLanguage()">English</button>
+          <a href="https://venmo.com/u/Valentin-Blancas" id="nav-offering" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 10px; color: #3d94f6; font-weight: bold;">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/venmo-2-569346.png" alt="Venmo" style="height: 20px;"> Ofrenda / Diezmo
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Solicitud de Oración</h1>
+    <p>Envía tu petición o lee las necesidades de otros para orar por ellos.</p>
+  </header>
+
+  <div class="section">
+    <h2>Enviar una Petición</h2>
+    <!-- Replace below with your real Google Form iframe -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejgVnWzqAzAhJieSSsrdCkgeDChK-R7yWF3YvMrQc5bi1tGw/viewform?embedded=true" width="100%" height="650">Cargando…</iframe>
+  </div>
+  
+  <div class="section">
+    <h2>Lista de Peticiones Recientes</h2>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRIVq7_xa9Vp7HOSA1qt9YReobkEtnY5BRnLhvK_1wcyn_9FunRmfUbQ0iB5nik2_ZYcPsVa1R-y3-M/pubhtml?widget=true&amp;headers=false" width="100%" height="500"></iframe>
+  </div>
+
+  <footer>
+    <p>© 2024 IDJ Casa de Refugio | <a href="inc.html">Privacy Policy</a> | <a href="oracion.html">Oracion/Prayer</a>
+      <a href="https://www.bizapedia.com/ca/idj-casa-de-refugio-inc.html" target="_blank">Church Filing Info</a>
+    </p>
+    <div class="social-icons" style="margin-top: 10px;">
+      <a href="https://www.facebook.com/profile.php?id=61554815210025" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/idj.casaderefugio" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://youtube.com/@idjcasaderefugio" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
