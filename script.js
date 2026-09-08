@@ -50,7 +50,7 @@ fetch('header.html')
       setText('footer-church-info', 'Church Filing Info');
     });
 
-// Hide header when scrolling down, show it when scrolling up
+// Header scroll behavior
 let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
@@ -62,12 +62,21 @@ window.addEventListener("scroll", () => {
 
   const currentScrollY = window.scrollY;
 
+  // Hide when scrolling down
   if (currentScrollY > lastScrollY && currentScrollY > 100) {
-    // Scrolling DOWN
     header.classList.add("hide-header");
-  } else if (currentScrollY < lastScrollY) {
-    // Scrolling UP
+  }
+
+  // Show when scrolling up
+  if (currentScrollY < lastScrollY) {
     header.classList.remove("hide-header");
+  }
+
+  // Change navbar color after scrolling 50px
+  if (currentScrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
   }
 
   lastScrollY = currentScrollY;
