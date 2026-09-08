@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería – IDJ Casa de Refugio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+  const translations = {
+  es: {
+    navWelcome: "Bienvenida",
+    navPastor: "Pastor",
+    navContact: "Información",
+    navGallery: "Galería",
+    navPacto: "Un Pacto no un Contrato",
+    slogan: "Vuelve a Casa",
+    maintenanceMessage: `Actualmente estamos en mantenimiento.
+      Es posible que algunas páginas o el sitio web completo no sean 100% funcionales o estén disponibles.
+      Vuelva pronto.`
+  },
+  en: {
+    navWelcome: "Welcome",
+    navPastor: "Pastor",
+    navContact: "Information",
+    navGallery: "Gallery",
+    navPacto: "A Covenant, Not a Contract",
+    slogan: "Come Back Home",
+    maintenanceMessage: `We are currently under maintenance.
+      Some pages or the entire website may not be 100% functional or available.
+      Please come back soon.`
+  }
+};
+
+let currentLang = 'es'; // default language
+
+function toggleLanguage() {
+  currentLang = currentLang === 'es' ? 'en' : 'es';
+
+  // Update nav links
+  document.getElementById('nav-welcome').textContent = translations[currentLang].navWelcome;
+  document.getElementById('nav-pastor').textContent = translations[currentLang].navPastor;
+  document.getElementById('nav-contact').textContent = translations[currentLang].navContact;
+  // Note: You have duplicate id="nav-gallery" for two links, better fix that
+  // For now, use querySelectorAll to get both links with nav-gallery class or fix the ids.
+  const galleryLinks = document.querySelectorAll('#menuDropdown a[id="nav-gallery"]');
+  if(galleryLinks.length >= 2){
+    galleryLinks[0].textContent = translations[currentLang].navGallery;
+    galleryLinks[1].textContent = translations[currentLang].navPacto;
+  }
+  
+  // Update slogan
+  document.getElementById('slogan').textContent = translations[currentLang].slogan;
+
+  // Update maintenance message (if visible)
+  const maintenanceH2 = document.querySelector('#maint h2');
+  if(maintenanceH2){
+    maintenanceH2.innerHTML = translations[currentLang].maintenanceMessage;
+  }
+
+  // Update button text
+  document.getElementById('langToggleBtn').textContent = currentLang === 'es' ? 'English' : 'Español';
+}
+
+// Initialize translations on page load
+window.addEventListener('DOMContentLoaded', () => {
+  toggleLanguage();  // This will set Spanish first (because currentLang default is es)
+});
+
+</script>
+<body>
+
+<div id="header"></div>
+
+
+  <section class="maintenance" id="maint">
+    <h2>Actualmente estamos en mantenimiento.<br /> 
+        Es posible que algunas páginas o el sitio web completo no sean 100% funcionales o estén disponibles.<br /> 
+        Vuelva pronto.</h2>
+  </section>
+
+  <div id="footer"></div>
+
+<script src="script.js"></script>
+
+  <!-- Lightbox Popup Container -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-img" src="" alt="Enlarged Image">
+</div>
+
+
+</body>
+</html>
