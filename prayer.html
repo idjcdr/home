@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Título de la Página – IDJ Casa de Refugio</title>
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+</script>
+
+<body>
+
+  <!-- Navigation -->
+   
+ <div id="header"></div>
+
+  <!-- Hero Header -->
+
+  <div class="section">
+    <h2>Enviar una Petición</h2>
+    <!-- Replace below with your real Google Form iframe -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejgVnWzqAzAhJieSSsrdCkgeDChK-R7yWF3YvMrQc5bi1tGw/viewform?embedded=true" width="100%" height="650">Cargando…</iframe>
+  </div>
+  
+  <div class="section">
+    <h2>Lista de Peticiones Recientes</h2>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRIVq7_xa9Vp7HOSA1qt9YReobkEtnY5BRnLhvK_1wcyn_9FunRmfUbQ0iB5nik2_ZYcPsVa1R-y3-M/pubhtml?widget=true&amp;headers=false" width="100%" height="500"></iframe>
+  </div>
+
+  <!-- Footer -->
+
+  <div id="footer"></div>
+
+  <!-- AOS & Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+<script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("menuDropdown");
+      dropdown.classList.toggle("show");
+    }
+
+    function toggleLanguage() {
+      const isSpanish = document.documentElement.lang === "es";
+      document.documentElement.lang = isSpanish ? "en" : "es";
+
+      document.getElementById("nav-welcome").textContent = isSpanish ? "Welcome" : "Bienvenida";
+      document.getElementById("nav-pastor").textContent = isSpanish ? "Pastor" : "Pastor";
+      document.getElementById("nav-contact").textContent = isSpanish ? "Information" : "Información";
+      document.getElementById("nav-gallery").textContent = isSpanish ? "Gallery" : "Galería";
+      document.querySelector(".lang-btn").textContent = isSpanish ? "Español" : "English";
+
+      document.getElementById("nav-offering").innerHTML = `
+        <img src="https://cdn.iconscout.com/icon/free/png-256/venmo-2-569346.png" alt="Venmo" style="height: 20px;">
+        ${isSpanish ? "Offering / Tithes" : "Ofrenda / Diezmo"}
+      `;
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].classList.remove('show');
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
