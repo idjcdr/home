@@ -27,12 +27,19 @@ a {
 
 /* NAVIGATION */
 nav {
-  background: #4B3B2B;
+  background: transparent;
   padding: 5px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#header.scrolled nav,
+#headeren.scrolled nav {
+  background: #4B3B2B;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
 }
 
 #header,
@@ -138,11 +145,44 @@ nav img {
 
 /* HEADER */
 header {
-  background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
   color: white;
   text-align: center;
   padding: 60px 40px;
   position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
+  z-index: 0;
+  animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+header h1,
+header p {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
 }
 
 header::before {
