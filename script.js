@@ -50,7 +50,7 @@ fetch('header.html')
       setText('footer-church-info', 'Church Filing Info');
     });
 
-// Header scroll behavior
+// Hide header when scrolling down, show it when scrolling up
 let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
@@ -62,21 +62,12 @@ window.addEventListener("scroll", () => {
 
   const currentScrollY = window.scrollY;
 
-  // Hide when scrolling down
   if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    // Scrolling DOWN
     header.classList.add("hide-header");
-  }
-
-  // Show when scrolling up
-  if (currentScrollY < lastScrollY) {
+  } else if (currentScrollY < lastScrollY) {
+    // Scrolling UP
     header.classList.remove("hide-header");
-  }
-
-  // Change navbar color after scrolling 50px
-  if (currentScrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
   }
 
   lastScrollY = currentScrollY;
@@ -152,12 +143,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close lightbox
-  closeBtn?.addEventListener("click", function () {
+  closeBtn.addEventListener("click", function () {
     lightbox.style.display = "none";
   });
 
   // Close if you click outside the image
-  lightbox?.addEventListener("click", function (e) {
+  lightbox.addEventListener("click", function (e) {
     if (e.target === lightbox) {
       lightbox.style.display = "none";
     }
