@@ -1,0 +1,95 @@
+PE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería – IDJ Casa de Refugio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+</script>
+
+<body>
+
+<div id="header"></div>
+
+
+  <section class="section">
+    <h2 id="gallery-title">Galeria de Fotos</h2>
+    <div class="gallery">
+      <img src="https://i.postimg.cc/26j0GxPP/IMG-3022.jpg" alt="Foto 1">
+      <img src="https://i.postimg.cc/cJBDfz5R/IMG-3057.jpg" alt="Foto 2">
+      <img src="https://i.postimg.cc/rmhQPrTz/IMG-3085.jpg" alt="Foto 3">
+      <img src="https://i.postimg.cc/90Fs42mw/IMG-5660.jpg" alt="Foto 4">
+      <img src="https://i.postimg.cc/nrzwF12v/IMG-5649.jpg" alt="Foto 5">
+      <img src="https://i.postimg.cc/85T03GrX/IMG-5650.jpg" alt="Foto 6">
+      <img src="https://i.postimg.cc/1Xj7fN7b/IMG-5651.jpg" alt="Foto 7">
+      <img src="https://i.postimg.cc/C1JQp2Gh/IMG-5652.jpg" alt="Foto 8">
+      <img src="https://i.postimg.cc/mgfJ4pTh/IMG-7156.jpg" alt="Foto 8">
+      <img src="https://i.postimg.cc/3wXqnNWD/IMG-5653.jpg" alt="Foto 9">
+      <img src="https://i.postimg.cc/rpXb1xyk/IMG-5654.jpg" alt="Foto 10">
+      <img src="https://i.postimg.cc/Vkbp0D8g/IMG-5655.jpg" alt="Foto 11">
+      <img src="https://i.postimg.cc/wTrnBnS3/IMG-5656.jpg" alt="Foto 12">
+      <img src="https://i.postimg.cc/15XLsy7L/IMG-5657.jpg" alt="Foto 13">
+      <img src="https://i.postimg.cc/VvGpnhvG/IMG-5658.jpg" alt="Foto 14">
+      <img src="https://i.postimg.cc/zBk9Xvr1/IMG-5659.jpg" alt="Foto 15">
+      <img src="https://i.postimg.cc/VNnxp4Zv/IMG-4584.jpg" alt="Foto 15">
+      <img src="https://i.postimg.cc/xjtWwX5v/IMG-5661.jpg" alt="Foto 16">
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+  <div id="footer"></div>
+
+  <!-- AOS & Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("menuDropdown");
+      dropdown.classList.toggle("show");
+    }
+
+    function toggleLanguage() {
+      const isSpanish = document.documentElement.lang === "es";
+      document.documentElement.lang = isSpanish ? "en" : "es";
+
+      document.getElementById("nav-welcome").textContent = isSpanish ? "Welcome" : "Bienvenida";
+      document.getElementById("nav-pastor").textContent = isSpanish ? "Pastor" : "Pastor";
+      document.getElementById("nav-contact").textContent = isSpanish ? "Information" : "Información";
+      document.getElementById("nav-gallery").textContent = isSpanish ? "Gallery" : "Galería";
+      document.getElementById("gallery-title").textContent = isSpanish ? "Photo Gallery" : "Galería de Fotos";
+      document.getElementById("slogan").textContent = isSpanish ? "" : "";
+      document.querySelector(".lang-btn").textContent = isSpanish ? "Español" : "English";
+      // "Ofrenda / Offering" remains unchanged
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].classList.remove('show');
+        }
+      }
+    }
+  </script>
+
+  <!-- Lightbox Popup Container -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-img" src="" alt="Enlarged Image">
+</div>
+
+</body>
+</html>
