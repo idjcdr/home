@@ -152,12 +152,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close lightbox
-  closeBtn.addEventListener("click", function () {
+  closeBtn?.addEventListener("click", function () {
     lightbox.style.display = "none";
   });
 
   // Close if you click outside the image
-  lightbox.addEventListener("click", function (e) {
+  lightbox?.addEventListener("click", function (e) {
     if (e.target === lightbox) {
       lightbox.style.display = "none";
     }
