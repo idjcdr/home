@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Título de la Página – IDJ Casa de Refugio</title>
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+</script>
+  
+<body>
+
+  <!-- Navigation -->
+<div id="header"></div>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section">
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=UUlUBz1tu129dEJY55EWU9bg"
+        title="IDJ Casa de Refugio - Videos Recientes"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <p id="video-info" style="margin-top: 20px;" data-en="Watch our latest videos or tune in live." data-es="Mira nuestros últimos videos o sintoniza en vivo.">Mira nuestros últimos videos o sintoniza en vivo.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+
+  <div id="footer"></div>
+
+  <!-- AOS & Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
