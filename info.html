@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Título de la Página – IDJ Casa de Refugio</title>
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+  
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+</script>
+  
+<body>
+
+  <!-- Navigation -->
+
+<div id="header"></div>
+
+  <section class="section">
+    <h2 id="dir-title">Dirección</h2>
+    <p id="dir-text">830 E Vista Way, Suite 221, Vista, CA 92084</p>
+
+    <h2 id="services-title">Horarios de Servicios</h2>
+    <ul id="service-list">
+      <li><strong>Domingo:</strong> Servicio General - 4:30 PM</li>
+      <li><strong>Martes:</strong> Estudio Bíblico - 7:00 PM</li>
+    </ul>
+
+    <h2 id="phone-title">Teléfono</h2>
+    <p id="phone-text">(760) 675-4847</p>
+
+    <h2 id="email-title">Correo Electrónico</h2>
+    <p id="email-text">casaderefugio0724@gmail.com</p>
+  </section>
+
+  <iframe src="https://www.google.com/maps?q=830+E+Vista+Way+Suite+221,+Vista,+CA+92084&output=embed" width="100%" heigt="300" style="border:none;"></iframe>
+
+  <!-- Footer -->
+
+<div id="footer"></div>
+
+  <!-- AOS & Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+   <script>
+    function toggleLanguage() {
+      const isSpanish = document.documentElement.lang === "es";
+      document.documentElement.lang = isSpanish ? "en" : "es";
+
+      document.getElementById('nav-welcome').textContent = isSpanish ? "Welcome" : "Bienvenida";
+      document.getElementById('nav-pastor').textContent = "Pastor";
+      document.getElementById('nav-contact').textContent = isSpanish ? "Information" : "Información";
+      document.getElementById('nav-gallery').textContent = isSpanish ? "Gallery" : "Galería";
+      document.querySelector('.lang-btn').textContent = isSpanish ? "Español" : "English";
+
+      document.getElementById('dir-title').textContent = isSpanish ? "Address" : "Dirección";
+      document.getElementById('services-title').textContent = isSpanish ? "Service Times" : "Horarios de Servicios";
+      document.getElementById('phone-title').textContent = isSpanish ? "Phone" : "Teléfono";
+      document.getElementById('email-title').textContent = isSpanish ? "Email" : "Correo Electrónico";
+
+      document.getElementById('service-list').innerHTML = isSpanish
+        ? `
+          <li><strong>Sunday:</strong> General Service - 4:30 PM</li>
+          <li><strong>Tuesday:</strong> Bible Study - 7:00 PM</li>
+        `
+        : `
+          <li><strong>Domingo:</strong> Servicio General - 4:30 PM</li>
+          <li><strong>Martes:</strong> Estudio Bíblico - 7:00 PM</li>
+        `;
+
+      document.getElementById("nav-offering").innerHTML = `
+        <img src="https://cdn.iconscout.com/icon/free/png-256/venmo-2-569346.png" alt="Venmo" style="height: 20px;">
+        ${isSpanish ? "Offering / Tithes" : "Ofrenda / Diezmo"}
+      `;
+    }
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("menuDropdown");
+      dropdown.classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].classList.remove('show');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
