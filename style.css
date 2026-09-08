@@ -43,13 +43,13 @@ nav {
 }
 
 #header,
+#header,
 #headeren {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
   transition: transform 0.3s ease;
+  margin-bottom: -80px;
 }
 
 #header.hide-header,
