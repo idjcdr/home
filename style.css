@@ -1,0 +1,466 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Reset and base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #F5F1E9;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVIGATION */
+nav {
+  background: #4B3B2B;
+  padding: 5px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+  height: 70px;
+  user-select: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.live-btn {
+  background-color: #e03e3e;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  margin-left: 20px;
+}
+
+.live-btn:hover {
+  background-color: #b82b2b;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background-color: #4B3B2B;
+  color: white;
+  padding: 20px 30px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  background-color: #4B3B2B;
+}
+
+.dropdown-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  background-color: #4B3B2B;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  min-width: 240px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.dropdown-content.show {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-content a,
+.dropdown-content .lang-btn {
+  color: white;
+  padding: 14px 20px;
+  display: block;
+  background: none;
+  text-align: left;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover,
+.dropdown-content .lang-btn:hover {
+  background-color: #4B3B2B;
+}
+
+/* HEADER */
+header {
+  background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 60px 40px;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+header h1,
+header p {
+  position: relative;
+  z-index: 1;
+}
+
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: 60px auto 80px;
+  width: 90%;
+}
+
+section {
+  padding: 50px 30px;
+  margin-bottom: 60px;
+  overflow: visible;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 36px;
+  color: #362062;
+  text-align: center;
+}
+
+/* Split layout */
+.split {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.split.reverse {
+  flex-direction: row-reverse;
+}
+
+.image-column,
+.text-column {
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+.image-column img {
+  width: 100%;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.image-column img:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* CONTACT IFRAME */
+iframe {
+  border-radius: 12px;
+  border: none;
+  width: 100%;
+  height: 300px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: #4B3B2B;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+footer p {
+  margin-bottom: 16px;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 12px;
+  filter: invert(1);
+  transition: filter 0.3s ease;
+}
+
+.social-icons a:hover {
+  filter: invert(0.7) sepia(0.3);
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Responsive nav dropdown for mobile */
+@media (max-width: 760px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  .dropbtn {
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+
+  .dropdown-content {
+    min-width: 180px;
+  }
+
+  main {
+    margin: 40px auto 60px;
+    width: 95%;
+  }
+
+  .split {
+    flex-direction: column !important;
+  }
+}
+
+/* Popup styles */
+    #popupOverlay {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #popupContent {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+
+    #popupContent img {
+      display: block;
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+      user-select: none;
+    }
+
+    #popupCloseBtn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    #popupCloseBtn:hover {
+      color: #e03e3e;
+    }
+
+    /* MOBILE-FRIENDLY IMAGES & LAYOUT FIX */
+@media (max-width: 768px) {
+  .image-column img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .split {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+
+  header {
+    padding: 40px 20px;
+    background-position: center top;
+  }
+
+  section {
+    padding: 30px 15px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+/* Ensure full-page elements don't cause overflow */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+/* Make sure the section fits on small screens */
+.section {
+  padding: 1rem;
+  max-width: 100%;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f0f0;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+
+/* Responsive image styles */
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  object-fit: cover;
+}
+
+.event-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.event-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* Lightbox container */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* The full-size image */
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #fff;
+}
+
+/* Close button */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
