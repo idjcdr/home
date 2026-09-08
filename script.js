@@ -50,6 +50,29 @@ fetch('header.html')
       setText('footer-church-info', 'Church Filing Info');
     });
 
+// Hide header when scrolling down, show it when scrolling up
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const header =
+    document.getElementById("header") ||
+    document.getElementById("headeren");
+
+  if (!header) return;
+
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    // Scrolling DOWN
+    header.classList.add("hide-header");
+  } else if (currentScrollY < lastScrollY) {
+    // Scrolling UP
+    header.classList.remove("hide-header");
+  }
+
+  lastScrollY = currentScrollY;
+});
+
 // Load footer
 fetch('footer.html')
   .then(response => response.text())
